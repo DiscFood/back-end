@@ -2,6 +2,9 @@ package br.com.discfood.models.product
 
 import br.com.discfood.models.BaseEntity
 import br.com.discfood.models.company.Company
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonProperty
 import lombok.AllArgsConstructor
 import lombok.NoArgsConstructor
 import java.math.BigDecimal
@@ -24,6 +27,7 @@ class Product(
 
         @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
         @JoinColumn(name = "owner_id")
+        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         val owner: Company,
 
 
