@@ -2,9 +2,11 @@ package br.com.discfood.services.imgur
 
 import br.com.discfood.exceptions.ImgurResponseException
 import com.fasterxml.jackson.databind.ObjectMapper
-import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.web.multipart.MultipartFile
@@ -28,8 +30,7 @@ class ImgurService(
 
         val requestBody: RequestBody = MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
-                .addFormDataPart("title", "Square Logo")
-                .addFormDataPart("image", "logo-square.png",
+                .addFormDataPart("image", "${System.nanoTime()}.png",
                         RequestBody.create(
                                 mediaType,
                                 file
@@ -46,11 +47,7 @@ class ImgurService(
         val response = client.newCall(request).execute()
 
         if (!response.isSuccessful) {
-            print("error!")
-            println(response.message)
-            println(response.code)
-            println(response.body?.string())
-            throw ImgurResponseException(response.message)
+            throw ImgurResponseException(response.body?.string() ?: response.message)
         }
 
         return mapper.readValue(response.body?.string(), ImgurResponse::class.java)

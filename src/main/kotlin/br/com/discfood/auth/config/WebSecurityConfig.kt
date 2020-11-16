@@ -35,6 +35,10 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     @Autowired
     private val jwtRequestFilter: JwtRequestFilter? = null
 
+    private val swaggerWhitelist = arrayOf(
+            "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**"
+    )
+
     @Autowired
     @Throws(Exception::class)
     fun configureGlobal(auth: AuthenticationManagerBuilder) {
@@ -61,15 +65,13 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     override fun configure(httpSecurity: HttpSecurity) {
         httpSecurity
                 .csrf()
-                .disable() // Não cheque essas requisições
+                .disable()
                 .authorizeRequests()
 
-                .antMatchers(HttpMethod.POST, "/company")
-                .permitAll()
+                .antMatchers(*swaggerWhitelist).permitAll()
 
-                .antMatchers(HttpMethod.POST, "/product")
-                .permitAll()
-
+                .antMatchers(HttpMethod.POST, "/company").permitAll()
+                .antMatchers("/product", "/product/**").permitAll()
                 .antMatchers("/authenticate").permitAll()
 
                 .anyRequest()

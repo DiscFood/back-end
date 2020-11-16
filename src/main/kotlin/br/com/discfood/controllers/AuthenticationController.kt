@@ -4,18 +4,18 @@ import br.com.discfood.auth.JwtTokenUtil
 import br.com.discfood.models.jwt.JwtRequest
 import br.com.discfood.services.JwtUserDetailsService
 import br.com.studae.models.jwt.JwtResponse
+import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.authentication.DisabledException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
-import org.springframework.web.bind.annotation.CrossOrigin
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
-@RestController
+@RestControllerAdvice
 @CrossOrigin
+@RequestMapping
+@Tag(name = "Authentication", description = "Authentication Controller")
 class AuthenticationController(
         val authenticationManager: AuthenticationManager,
         val jwtTokenUtil: JwtTokenUtil,
