@@ -17,21 +17,17 @@ class CompanyController(
 ) {
 
     @PostMapping
+    @Operation(summary = "Create a new company")
     fun save(@RequestBody company : Company) : ResponseEntity<Any> {
         companyService.save(company)
         return ResponseEntity.ok(company)
     }
 
-    @Operation(summary = "My endpoint", security = [SecurityRequirement(name = "bearerAuth")])
-    @GetMapping
-    fun getById() {
-
-
+    @Operation(summary = "Get company by id", security = [SecurityRequirement(name = "bearerAuth")])
+    @GetMapping("/{id}")
+    fun getById(@PathVariable id : Long): Company {
+        return companyService.findById(id)
     }
-
-
-
-
 
 
 }
