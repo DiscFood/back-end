@@ -1,9 +1,9 @@
 package br.com.discfood.services.company
 
 import at.favre.lib.crypto.bcrypt.BCrypt
-import br.com.discfood.exceptions.CompanyNotFound
+import br.com.discfood.exceptions.company.CompanyNotFound
 import br.com.discfood.models.company.Company
-import org.springframework.beans.factory.annotation.Autowired
+import br.com.discfood.models.company.CompanyDTO
 import org.springframework.stereotype.Service
 import br.com.discfood.repositories.CompanyRepository
 
@@ -15,6 +15,10 @@ class CompanyService(val companyRepository: CompanyRepository) {
         companyRepository.save(company)
     }
 
+    fun existsByEmailOrName(email: String, name : String): Boolean {
+        return companyRepository.existsByEmailOrNameIgnoreCase(email, name)
+    }
+
     fun findByEmail(email : String) : Company {
         return companyRepository.findByEmail(email) ?: throw CompanyNotFound()
     }
@@ -22,5 +26,10 @@ class CompanyService(val companyRepository: CompanyRepository) {
     fun findById(id : Long) : Company {
         return companyRepository.findById(id).takeIf { it.isPresent }?.get() ?: throw CompanyNotFound()
     }
+
+    fun findAll(): List<CompanyDTO> {
+        return companyRepository.findAll().map { CompanyDTO(it.id, it.email) }
+    }
+
 
 }

@@ -70,7 +70,7 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
 
                 .antMatchers(*swaggerWhitelist).permitAll()
 
-                .antMatchers(HttpMethod.POST, "/company").permitAll()
+                .antMatchers("/company").permitAll()
                 .antMatchers("/product", "/product/**").permitAll()
                 .antMatchers("/authenticate").permitAll()
 

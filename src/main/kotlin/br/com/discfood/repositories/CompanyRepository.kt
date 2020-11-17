@@ -9,4 +9,6 @@ interface CompanyRepository : JpaRepository<Company, Long> {
 
     fun findByEmail(email: String) : Company?
 
+    fun existsByEmailOrNameIgnoreCase(email: String, name: String) : Boolean
+
 }

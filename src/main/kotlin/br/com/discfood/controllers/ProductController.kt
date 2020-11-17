@@ -1,10 +1,6 @@
 package br.com.discfood.controllers
 
-import br.com.discfood.context.getAuthenticatedCompany
-import br.com.discfood.exceptions.CategoryNotFoundException
-import br.com.discfood.exceptions.InsufficientPermissionException
 import br.com.discfood.models.product.Product
-import br.com.discfood.models.product.ProductCategory
 import br.com.discfood.models.product.ProductDTO
 import br.com.discfood.services.product.ProductService
 import io.swagger.v3.oas.annotations.Operation
