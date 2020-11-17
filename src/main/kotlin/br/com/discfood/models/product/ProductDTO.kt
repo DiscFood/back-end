@@ -16,6 +16,5 @@ class ProductDTO(
         val oldPrice: BigDecimal,
         val newPrice: BigDecimal,
         val category: ProductCategory,
-        val owner_id: Long,
         val expiresAt: String = ZonedDateTime.now(ZoneOffset.UTC).plusDays(1).format(DateTimeFormatter.ISO_INSTANT)
 )

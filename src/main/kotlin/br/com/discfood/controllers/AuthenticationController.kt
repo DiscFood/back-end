@@ -4,6 +4,7 @@ import br.com.discfood.auth.JwtTokenUtil
 import br.com.discfood.models.jwt.JwtRequest
 import br.com.discfood.services.JwtUserDetailsService
 import br.com.studae.models.jwt.JwtResponse
+import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
@@ -23,7 +24,7 @@ class AuthenticationController(
 ) {
 
     @PostMapping(value = ["/authenticate"])
-    @Throws(Exception::class)
+    @Operation(summary = "Login as a company")
     fun createAuthenticationToken(@RequestBody authenticationRequest: JwtRequest): ResponseEntity<*>? {
         val userDetails = userDetailsService
                 .loadUserByUsername(authenticationRequest.email)

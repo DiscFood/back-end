@@ -23,8 +23,8 @@ class CompanyController(
         return ResponseEntity.ok(company)
     }
 
-    @Operation(summary = "Get company by id", security = [SecurityRequirement(name = "bearerAuth")])
     @GetMapping("/{id}")
+    @Operation(summary = "Get company by id", security = [SecurityRequirement(name = "bearerAuth")])
     fun getById(@PathVariable id : Long): Company {
         return companyService.findById(id)
     }

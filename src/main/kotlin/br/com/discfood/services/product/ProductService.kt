@@ -1,5 +1,6 @@
 package br.com.discfood.services.product
 
+import br.com.discfood.context.getAuthenticatedCompany
 import br.com.discfood.exceptions.CategoryNotFoundException
 import br.com.discfood.exceptions.ProductNotFoundException
 import br.com.discfood.models.product.Product
@@ -50,7 +51,8 @@ class ProductService(
 
 
     private fun convert(productDTO: ProductDTO): Product {
-        val owner = companyService.findById(productDTO.owner_id)
+        val authenticatedCompany = getAuthenticatedCompany()
+        val owner = companyService.findById(authenticatedCompany.id)
 
         return Product(
                 productDTO.name,
