@@ -1,10 +1,18 @@
 # First Steps
 
-## Have you had a chance to answer the previous question?
+## What you should know before proceed!
 
-Yes, after a few months we finally found the answer. Sadly, Mike is on vacations right now so I'm afraid we are not able to provide the answer at this point.
+* [ ] Know basics of Java
+* [ ] Understading how an API works
+* [ ] Communicate your tech lead you're starting
 
 ## Can I become who I want to be?
 
 That's a tough question but thankfully, our team is on it. Please bear with us while we're investigating.
+
+
+
+> Só sei que nada sei!
+
+
 
