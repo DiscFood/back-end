@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [Pagina Inicial](README.md)
 * [New branding features](new-page.md)
 
 ## Onboarding
