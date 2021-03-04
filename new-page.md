@@ -1,4 +1,4 @@
-# New Page
+# New branding features
 
 ## 15.0.0 - 2042-12-03
 
