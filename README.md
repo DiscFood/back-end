@@ -21,17 +21,11 @@ Once you're strong enough, save the world:
 {% code title="hello.sh" %}
 ```bash
 # Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
+echo 'You got to trust me on this, I saved the world
 ```
 {% endcode %}
 
-
-
-
-
-[https://www.youtube.com/watch?v=\_HjToekoEMk&feature=emb\_logo](https://www.youtube.com/watch?v=_HjToekoEMk&feature=emb_logo)
-
-{% page-ref page="./" %}
+{% embed url="https://www.figma.com/embed?embed\_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fz4DQSIwcE3v4S54wQz20zq%2Fshop-icon%3Fnode-id%3D0%253A1" %}
 
 
 
