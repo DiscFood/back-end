@@ -2,7 +2,7 @@
 description: This is a brief description
 ---
 
-# Initial page
+# Novo recurso
 
 ## Getting Super Powers
 
